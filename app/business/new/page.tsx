@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import VerticalBusinessCard from './VerticalBusinessCard';
-import { Settings, Eye, X, Lock, Unlock, Check, Shield } from 'lucide-react';
+import { Settings, Eye, X, Lock, Check, Shield } from 'lucide-react';
 
 // Sample data for Ahmed's Electronics profile
 const ahmedProfile = {
