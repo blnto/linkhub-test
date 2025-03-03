@@ -140,7 +140,7 @@ const ModernMobileProfile = ({ profile = sampleProfile }) => {
     updateActiveSection();
     window.addEventListener('scroll', updateActiveSection);
     return () => window.removeEventListener('scroll', updateActiveSection);
-  }, [profile.sections]);
+  }, [profile.sections, activeSection]);
 
   // Function to scroll to a section
   const scrollToSection = (sectionId) => {
