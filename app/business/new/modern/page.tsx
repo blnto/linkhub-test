@@ -12,6 +12,44 @@ import {
   ExternalLink
 } from 'lucide-react';
 
+interface Profile {
+  name: string;
+  username: string;
+  tagline: string;
+  description: string;
+  logo: string;
+  appearance: {
+    accent: string;
+    theme: string;
+  };
+  contact: {
+    phone: string;
+    email: string;
+    website: string;
+    address: string;
+  };
+  links: Array<{
+    name: string;
+    url: string;
+    icon: string;
+  }>;
+  sections: Array<{
+    id: string;
+    title: string;
+    icon: string;
+    content?: Array<any>;
+    details?: {
+      established?: string;
+      employees?: string;
+      mission?: string;
+    };
+  }>;
+}
+
+interface ModernMobileProfileProps {
+  profile?: Profile;
+}
+
 // Sample profile data (would be passed as props in real implementation)
 const sampleProfile = {
   name: "Ahmed's Electronics",
@@ -91,7 +129,7 @@ const recommendations = [
   }
 ];
 
-const ModernMobileProfile = ({ profile = sampleProfile }) => {
+const ModernMobileProfile = ({ profile = sampleProfile }: ModernMobileProfileProps) => {
   const [activeSection, setActiveSection] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [sectionPositions, setSectionPositions] = useState({});
@@ -99,7 +137,6 @@ const ModernMobileProfile = ({ profile = sampleProfile }) => {
   // Detect scroll position for navigation highlighting
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -344,11 +381,11 @@ const ModernMobileProfile = ({ profile = sampleProfile }) => {
                   }}
                 >
                   <div className="h-32 bg-gray-100">
-                    <img
-                      src={product.image || getDefaultImage(150)}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                    />
+<img
+  src={product.image || getDefaultImage(150)}
+  alt={product.name || 'Product image'}
+  className="w-full h-full object-cover"
+/>
                   </div>
                   <div className="p-3">
                     <h3 className="text-sm font-medium">{product.name}</h3>
