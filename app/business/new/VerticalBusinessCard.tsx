@@ -96,7 +96,7 @@ const VerticalBusinessCard = ({ profile, recommendations = [] }) => {
   };
 
   // Handle swipe gestures
-  const handleDragEnd = (e, { offset, velocity }) => {
+  const handleDragEnd = (e, { offset }) => {
     const swipe = Math.abs(offset.x) > 50;
 
     if (swipe) {
