@@ -46,10 +46,6 @@ interface Profile {
   }>;
 }
 
-interface ModernMobileProfileProps {
-  profile?: Profile;
-}
-
 // Sample profile data (would be passed as props in real implementation)
 const sampleProfile = {
   name: "Ahmed's Electronics",
@@ -129,7 +125,7 @@ const recommendations = [
   }
 ];
 
-const ModernMobileProfile = ({ profile = sampleProfile }: ModernMobileProfileProps) => {
+const ModernMobileProfile = ({ profile = sampleProfile }) => {
   const [activeSection, setActiveSection] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [sectionPositions, setSectionPositions] = useState({});
